@@ -4,23 +4,20 @@
 import sys
 reload(sys)
 sys.setdefaultencoding('utf8')
+import os
+import BeautifulSoup as bs
+import re
+
+#This is so that I can check this file into github without checking in personal information 
+#It contains a single list called "my_names" that contains the strings that represent my name on chat clients. 
+from namelist import my_names
 
 #Generates a corpus for training an encoder/decoder RNN from chat log files. 
 
 #The training data consists of files with one chat utterance per line. 
 #One file is what the other person said, the other file is what I said in 
 #response. 
-#
-#This script also generates vocabulary files, with one line per unique word,
-#for both the other user's utterances and mine. 
-import os
-import BeautifulSoup as bs
-import re
-import io
 
-#This is so that I can check this file into github without checking in personal information 
-#It contains a single list called "names", that is the strings that represent my name on chat clients. 
-from namelist import my_names
 
 #Directory where pidgin keeps its logfiles. 
 #On my system, this is a symlink to dropbox, and all my logs are actually there. 
@@ -207,17 +204,17 @@ def generate_training_data(conversation, my_names):
 				#This is the other speaker's first utterance
 				otherSpeaker = message[0]
 				currentSpeaker = otherSpeaker
-				theirBuffer += message[1] + "<<SEND>>"
+				theirBuffer += message[1] + " <<SEND>>"
 			elif message[0] == otherSpeaker and currentSpeaker == otherSpeaker:
 				#They are talking, and this message is from them
-				theirBuffer += message[1] + "<<SEND>>"
+				theirBuffer += message[1] + " <<SEND>>"
 			elif message[0] in my_names and currentSpeaker == otherSpeaker:
 				#I'm starting to respond
 				currentSpeaker = message[0]
-				myBuffer += message[1] + "<<SEND>>"
+				myBuffer += message[1] + " <<SEND>>"
 			elif message[0] in my_names and currentSpeaker in my_names:
 				#I'm continuing to respond
-				myBuffer += message[1] + "<<SEND>>"
+				myBuffer += message[1] + " <<SEND>>"
 			elif message[0] == otherSpeaker and currentSpeaker in my_names:
 				#I'm done responding, and they are starting to speak again. 
 				#Write corresponding lines to files
@@ -241,9 +238,6 @@ def generate_training_data(conversation, my_names):
 				#Failed to fit any of the cases, attempt to debug
 				print "I can't follow this"
 				import pdb; pdb.set_trace()
-
-def generate_vocabulary_files():
-	pass
 
 if __name__ == '__main__':
 	lp = LogParser()
