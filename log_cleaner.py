@@ -18,7 +18,6 @@ from namelist import my_names
 #One file is what the other person said, the other file is what I said in 
 #response. 
 
-
 #Directory where pidgin keeps its logfiles. 
 #On my system, this is a symlink to dropbox, and all my logs are actually there. 
 #See http://gizmosmith.com/2012/09/10/cross-system-chat-log-sync/
@@ -204,17 +203,17 @@ def generate_training_data(conversation, my_names):
 				#This is the other speaker's first utterance
 				otherSpeaker = message[0]
 				currentSpeaker = otherSpeaker
-				theirBuffer += message[1] + " <<SEND>>"
+				theirBuffer += message[1] + " <<SEND>> "
 			elif message[0] == otherSpeaker and currentSpeaker == otherSpeaker:
 				#They are talking, and this message is from them
-				theirBuffer += message[1] + " <<SEND>>"
+				theirBuffer += message[1] + " <<SEND>> "
 			elif message[0] in my_names and currentSpeaker == otherSpeaker:
 				#I'm starting to respond
 				currentSpeaker = message[0]
-				myBuffer += message[1] + " <<SEND>>"
+				myBuffer += message[1] + " <<SEND>> "
 			elif message[0] in my_names and currentSpeaker in my_names:
 				#I'm continuing to respond
-				myBuffer += message[1] + " <<SEND>>"
+				myBuffer += message[1] + " <<SEND>> "
 			elif message[0] == otherSpeaker and currentSpeaker in my_names:
 				#I'm done responding, and they are starting to speak again. 
 				#Write corresponding lines to files
@@ -233,7 +232,7 @@ def generate_training_data(conversation, my_names):
 				myBuffer = theirBuffer = ''
 				#Update to who is now speaking
 				currentSpeaker = message[0]
-				theirBuffer += message[1] + "<<SEND>>"
+				theirBuffer += message[1] + " <<SEND>> "
 			else:
 				#Failed to fit any of the cases, attempt to debug
 				print "I can't follow this"
