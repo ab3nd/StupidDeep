@@ -20,7 +20,7 @@ Conversations that only have one user, or one user and an away message, should b
 So before generating the vocabularies and the data files, some work will have to be done to clean the chat corpuses. 
 However, initial generation of the vocabularies will be useful for targeting the cleaning work. 
 
-### Deep learning and _horror_vacuui_
+### Deep learning and _horror vacuui_
 
 Turns out that chatbots and question answering can be viewed as translation problems. 
 Sort of. 
