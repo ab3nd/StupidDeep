@@ -20,7 +20,9 @@ Conversations that only have one user, or one user and an away message, should b
 So before generating the vocabularies and the data files, some work will have to be done to clean the chat corpuses. 
 However, initial generation of the vocabularies will be useful for targeting the cleaning work. 
 
-### Deep learning and _horror vacuui_
+Deep learning and _horror vacuui_
+---------------------------------
+### Where is fancy bread, in the heart or in the head?
 
 Turns out that chatbots and question answering can be viewed as translation problems. 
 Sort of. 
@@ -35,6 +37,11 @@ On the other hand, it's not like NNs actually "know" what things "mean" anyway, 
 This, I think, more than other problems (utility monsters and the like) sits at the core of human aversion to "intelligent machines". 
 There is no place in a neural network that knows French, or English, that recognizes a dog or a bike. 
 The math in them is so simple that it can be explained to a child. 
-They act without knowing, and so raise the possiblity that we also act without knowing. 
-That consciousness is an epiphenomenon, that "being" as we experience it is not required and has no use. 
+They act without knowing, and so raise the possiblity that we also act without knowing, that consciousness is an epiphenomenon, that "being" as we experience it is not required and may even be counterproductive (see also: http://www.rifters.com/real/Blindsight.htm)
 Clearly, this is not something that people want to directly grapple with, so they write a stupid chatbot to amuse themselves. 
+
+However, all is not lost. 
+There is no neuron in the human brain that knows French, or English, or any of the other things that we feel that we know (including the feeling of knowing).
+The system as a whole "knows", rather than a part knowing. 
+Unfortunately, this raises another specter of AI, that we may eventually build a machine that is as conscious as we are, or is conscious, but not as we are. 
+Advances in the study of the minds of animals indicate that many of the capabilities we believed uniquely human are present in animals as well. 
