@@ -2,8 +2,7 @@
 
 #Heavily based on the translation example from google's tensorflow tutorials
 
-import tensorflow as tf
-import utils
+
 from __future__ import absolute_import
 from __future__ import division
 from __future__ import print_function
@@ -13,6 +12,14 @@ import os
 import random
 import sys
 import time
+
+import numpy as np
+
+import tensorflow as tf
+
+#My stuff, and google's model
+import utils
+import seq2seq_model
 
 tf.app.flags.DEFINE_float("learning_rate", 0.5, "Learning rate.")
 tf.app.flags.DEFINE_float("learning_rate_decay_factor", 0.99,
