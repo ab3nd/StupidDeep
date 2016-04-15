@@ -25,7 +25,19 @@ def init_vocab(vocab_path):
 
 #Convert a string to a list with the IDs of all of the vocabulary tokens in the string. 
 #If a token isn't in the vocabulary, it gets set to <<UNK>>
-def str_to_IDs(sentence, vocab)
+def str_to_IDs(sentence, vocab):
 	words = tokenize(sentence)
 	return [vocab.get(w, '<<UNK>>') for w in words]
 
+#Convert corpus files (human-readable strings) into files containing lists of token IDs
+def create_ID_data(data_path, vocab_path):
+	#Generate name for output file
+	basename = data_path.split('.')[0]
+	#TODO Check that vocab path exists and data path exists
+	#Load vocabulary 
+	vocab, _ = init_vocab(vocab_path)
+	#Convert file
+	with open(data_path, 'r') as inFile, open(basename+".ids", 'w') as outFile:
+		for line in inFile.readlines():
+			IDs = str_to_IDs(line, vocab)
+			outFile.write(" ".join([str(identifier) for identifier in IDs]) + "\n")
