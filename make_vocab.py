@@ -40,7 +40,7 @@ for file in infiles:
 
 		#Done reading the file, now print the words and counts to csv
 		#First, convert the dictionary to a list of tuples, and sort it
-		vocabList=[]
+		vocabList=['<<UNK>>']
 		for key in vocab.keys():
 			vocabList.append((key, vocab[key]))
 		vocabList =sorted(vocabList, key=lambda x:x[1])
