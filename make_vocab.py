@@ -14,7 +14,7 @@
 import sys
 import re
 
-infiles = ["me_data.txt", "them_data.txt"]
+infiles = ["stupid_deep_data/me_data.txt", "stupid_deep_data/them_data.txt"]
 
 for file in infiles:
 	basename = file.split('.')[0]
@@ -46,7 +46,11 @@ for file in infiles:
 		vocabList =sorted(vocabList, key=lambda x:x[1])
 
 		with open(basename + "_counts.csv", 'w') as countsFile, open(basename + "_vocab.txt", 'w') as vocabFile:
+			count = 0
 			for item in vocabList:
+				count += 1
+				if (count % 500 == 0):
+					print "Saving line {0}".format(count)
 				countsFile.write("{0},{1}\n".format(item[0], item[1]))
 				vocabFile.write("{0}\n".format(item[0]))
 
